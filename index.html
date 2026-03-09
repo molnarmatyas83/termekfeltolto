@@ -24,7 +24,6 @@
         .section-title { text-align: center; margin-bottom: 4rem; }
         .section-title h2 { font-size: 2.5rem; color: var(--main); margin-bottom: 1rem; }
         
-        /* Személyes bemutatkozó blokk kép nélkül */
         .intro-box { background: white; padding: 3.5rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 4rem; text-align: center; border-bottom: 5px solid var(--accent); }
         .intro-box h2 { color: var(--main); margin-bottom: 1.5rem; font-size: 2.2rem; }
         .intro-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 1.5rem; }
@@ -43,9 +42,11 @@
         .form-container h2 { text-align: center; color: var(--main); font-size: 2.2rem; margin-bottom: 0.5rem; }
 
         footer { background: #0f172a; color: #94a3b8; padding: 4rem 1.5rem; text-align: center; }
-        .partner-link { color: #60a5fa; text-decoration: none; font-weight: bold; }
+        .partner-badge { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; border: 1px solid #334155; border-radius: 12px; text-decoration: none; color: #cbd5e1; transition: 0.3s; }
+        .partner-badge:hover { border-color: var(--accent); color: white; background: rgba(37, 99, 235, 0.1); }
+        .partner-badge strong { color: #60a5fa; }
         
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .intro-box { padding: 2rem; } .platform-logos { gap: 2rem; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .intro-box { padding: 2rem; } }
     </style>
 </head>
 <body>
@@ -64,37 +65,36 @@
 <section class="section">
     <div class="intro-box">
         <h2>Molnár Mátyás vagyok, a webshopod háttértámogatója.</h2>
-        <p>Tudom, hogy egy webshop indításánál vagy üzemeltetésénél a legunalmasabb és legidőigényesebb rész a termékadatok feltöltése. Én azért vagyok itt, hogy ezt levegyem a válladról.</p>
-        <p>A <strong>Webshopsegitseg.hu</strong> szakmai hátterével és több éves tapasztalattal garantálom a precizitást, legyen szó 50 termék manuális rögzítéséről vagy 5000 termék tömeges importálásáról.</p>
+        <p>Tudom, hogy egy webshop üzemeltetésénél a legunalmasabb rész a termékadatok feltöltése. Én azért vagyok itt, hogy ezt levegyem a válladról, és szakértő kezekbe kerüljön a boltod háttérmunkája.</p>
+        <p>A <strong>Webshopsegitseg.hu</strong> szakmai hátterével garantálom a precizitást és a gyorsaságot, legyen szó 50 termék manuális rögzítéséről vagy több ezer termék tömeges importálásáról.</p>
         <p><strong>Hívj bátran: <a href="tel:06209785129" style="color:var(--accent); text-decoration:none; font-weight:bold;">06 20 978 5129</a></strong></p>
         <a href="#ajanlat" class="btn" style="margin-top: 1rem; background: #10b981;">Indítsuk el a közös munkát!</a>
     </div>
 
     <div class="section-title">
         <h2>Specializált Shoprenter és Unas szakértelem</h2>
-        <p>Csak a két piacvezető magyar rendszerre fókuszálok, így ismerem minden trükkjüket.</p>
         <div class="platform-logos">
-            <img src="https://logowiki.net/wp-content/uploads/2021/11/shoprenter-logo.png" alt="Shoprenter szakértő" class="platform-logo" style="height:40px;">
-            <img src="https://unas.hu/img/unas_logo.png" alt="Unas szakértő" class="platform-logo" style="height:35px;">
-        </div>
+    <img src="shoprenter.png" alt="Shoprenter szakértő" class="platform-logo" style="height:45px;">
+    <img src="unas.png" alt="Unas szakértő" class="platform-logo" style="height:40px;">
+</div>
     </div>
     
     <div class="detailed-services">
         <div class="service-block">
             <h3>Tömeges adatkezelés és import</h3>
-            <p>Nem számít, milyen kusza Excel táblázatot vagy XML fájlt kaptál a nagykereskedőtől. Megtisztítom az adatokat, rendszerezem a kategóriákat, és hiba nélkül betöltöm a rendszerbe. Segítek az árfrissítésekben és a készletkezelés automatizálásában is.</p>
-            <a href="#ajanlat" class="btn">Van egy fájlom, kérlek nézd meg!</a>
+            <p>Megtisztítom az adatokat, rendszerezem a kategóriákat, és hiba nélkül betöltöm a rendszerbe a nagykereskedelmi fájljaidat. Segítek az árfrissítésekben és a készletkezelés automatizálásában is.</p>
+            <a href="#ajanlat" class="btn">Van egy fájlom, nézd meg!</a>
         </div>
         
         <div class="service-block">
             <h3>AI-alapú termékleírás készítés</h3>
-            <p>A gyártói leírások másolása helyett mesterséges intelligencia segítségével minden termékedhez egyedi, meggyőző és SEO-optimalizált magyar szöveget írok. Ez segít abban, hogy a Google előrébb soroljon, és a vásárlók is nagyobb bizalommal vásároljanak.</p>
+            <p>Mesterséges intelligencia segítségével minden termékedhez egyedi, meggyőző és SEO-optimalizált magyar szöveget írok. Ez segít abban, hogy a Google előrébb soroljon, és a vásárlók is bizalommal vásároljanak.</p>
             <a href="#ajanlat" class="btn">SEO leírásokat szeretnék!</a>
         </div>
 
         <div class="service-block">
             <h3>Precíz paraméterezés és variációk</h3>
-            <p>Beállítom a szűrőket, a termékváltozatokat (méret, szín, anyag) és az összetett paraméter-mátrixokat. Ha Shoprenter szülő-gyermek viszonyokról vagy Unas paraméterekről van szó, pontosan tudom, mit hova kell tölteni.</p>
+            <p>Beállítom a szűrőket, a termékváltozatokat és az összetett paraméter-mátrixokat. Pontosan tudom, hogyan kell felépíteni a logikus választékot Shoprenter és Unas környezetben.</p>
             <a href="#ajanlat" class="btn">Rendbe rakom a szűrőidet!</a>
         </div>
     </div>
@@ -113,7 +113,9 @@
 <footer>
     <p>Molnár Mátyás E.V. - Minden jog fenntartva &copy; 2026</p>
     <p>Telefonszám: <a href="tel:06209785129" style="color:white; text-decoration:none;">06 20 978 5129</a></p>
-    <p>Fő profilom: <a href="https://webshopsegitseg.hu" class="partner-link">Webshopsegitseg.hu</a></p>
+    <a href="https://webshopsegitseg.hu" class="partner-badge" target="_blank">
+        Szakmai partner: <strong>Webshopsegitseg.hu</strong>
+    </a>
 </footer>
 
 </body>
