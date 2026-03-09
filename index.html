@@ -3,60 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termékfeltöltő.hu | Webshop Adatfeltöltés Gyorsan</title>
+    <title>Termékfeltöltés Shoprenter és Unas webshopokba - Termékfeltöltő.hu</title>
+    <meta name="description" content="Profi termékfeltöltés és adatkezelés Shoprenter és Unas webáruházakba. Tömeges importálás, SEO leírások és precíz paraméterezés szakértőktől.">
     <style>
-        :root { --primary: #0f172a; --accent: #3b82f6; --light: #f1f5f9; }
-        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; background: var(--light); color: #334155; }
-        header { background: var(--primary); color: white; padding: 3rem 1rem; text-align: center; }
-        .container { max-width: 900px; margin: -2rem auto 2rem; padding: 0 1rem; }
-        .card { background: white; padding: 2.5rem; border-radius: 12px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1); }
-        h1 { margin: 0; font-size: 2.5rem; letter-spacing: -1px; }
-        h2 { color: var(--primary); margin-top: 0; }
-        .cta-button { display: inline-block; background: var(--accent); color: white; padding: 1.2rem 2.5rem; text-decoration: none; border-radius: 8px; font-weight: 700; margin-top: 1.5rem; transition: transform 0.2s; }
-        .cta-button:hover { transform: translateY(-2px); }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
-        .feature { background: white; padding: 1.5rem; border-radius: 10px; border-top: 4px solid var(--accent); box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
-        .price-tag { background: #dcfce7; color: #166534; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; display: inline-block; margin-bottom: 1rem; }
-        footer { text-align: center; padding: 3rem; color: #94a3b8; font-size: 0.9rem; }
-        .partner-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+        :root { --main: #0f172a; --accent: #2563eb; --success: #059669; --text: #334155; --bg: #f8fafc; }
+        body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); }
+        
+        nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .logo { font-weight: 800; font-size: 1.5rem; color: var(--main); text-decoration: none; }
+        .logo span { color: var(--accent); }
+
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 5.5rem 1.5rem; text-align: center; }
+        .hero h1 { font-size: 3.2rem; margin-bottom: 1.5rem; line-height: 1.1; letter-spacing: -1px; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2.5rem; opacity: 0.9; }
+        
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 1.2rem 2.8rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; border: none; cursor: pointer; }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); }
+
+        .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.4rem; color: var(--main); margin-bottom: 1rem; }
+        
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2.5rem; }
+        .card { background: white; padding: 2.5rem; border-radius: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.03); border: 1px solid #e2e8f0; transition: 0.3s; }
+        .card:hover { border-color: var(--accent); }
+        .card h3 { color: var(--accent); font-size: 1.5rem; margin-top: 0; }
+
+        .platform-box { background: white; padding: 3rem; border-radius: 24px; margin: 2rem 0; display: flex; flex-wrap: wrap; gap: 2rem; align-items: center; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); }
+        .platform-text { flex: 1; min-width: 300px; }
+        .check-list { list-style: none; padding: 0; }
+        .check-list li { margin-bottom: 1.2rem; display: flex; align-items: center; font-weight: 500; }
+        .check-list li::before { content: '✔'; color: var(--success); margin-right: 15px; font-weight: 900; font-size: 1.2rem; }
+
+        .pricing { background: var(--main); color: white; padding: 4rem; border-radius: 24px; text-align: center; flex-shrink: 0; width: 300px; margin: 0 auto; }
+        .price-tag { font-size: 3.5rem; font-weight: 800; display: block; }
+        .price-unit { font-size: 1.1rem; opacity: 0.7; }
+
+        .faq { background: #f1f5f9; border-radius: 24px; padding: 4rem 2rem; margin-top: 4rem; }
+        .contact { background: var(--accent); color: white; text-align: center; padding: 5rem 1.5rem; margin-top: 4rem; }
+        
+        footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; text-align: center; border-top: 1px solid #1e293b; }
+        .partner-badge { display: inline-block; margin-top: 1rem; padding: 0.5rem 1rem; border: 1px solid #334155; border-radius: 8px; text-decoration: none; color: #cbd5e1; }
+
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .pricing { width: 100%; box-sizing: border-box; } }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Termékfeltöltő.hu</h1>
-    <p>Professzionális webshop adatkezelés és termékrögzítés</p>
-</header>
+<nav>
+    <a href="#" class="logo">Termék<span>feltöltő</span>.hu</a>
+    <a href="mailto:info@termekfeltolto.hu" style="text-decoration:none; font-weight:700; color:var(--accent); border: 2px solid var(--accent); padding: 0.5rem 1rem; border-radius: 8px;">Ajánlatkérés</a>
+</nav>
 
-<div class="container">
-    <div class="card">
-        <h2>Felszabadítjuk a munkaidődet</h2>
-        <p>Unod már az Excel táblák bogarászását és a végtelen másolgatást? A <strong>Termékfeltöltő.hu</strong> leveszi a válladról a terhet. Legyen szó Shoprenter, Unas vagy Shopify boltról, mi gyorsan és precízen elvégezzük a piszkos munkát.</p>
-        
-        <div class="price-tag">Árak: 250 Ft / terméktől</div>
-        <br>
-        <a href="mailto:info@termekfeltolto.hu" class="cta-button">Kérek egy ingyenes próbatöltést!</a>
+<section class="hero">
+    <h1>Kereskedjen, ne adatot rögzítsen!</h1>
+    <p>Shoprenter és Unas specialistaként levesszük a válláról a termékfeltöltés és adatbázis-kezelés terhét. Gyors, precíz és SEO-barát megoldások.</p>
+    <a href="mailto:info@termekfeltolto.hu" class="btn">Ingyenes próbatöltést kérek!</a>
+</section>
+
+<section class="section">
+    <div class="section-title">
+        <h2>Specializált webshop támogatás</h2>
+        <p>Miért töltene napokat másolgatással, ha mi órák alatt elvégezzük?</p>
     </div>
-
     <div class="grid">
-        <div class="feature">
-            <h3>Tömeges import</h3>
-            <p>Nagykereskedelmi CSV/XML listák tisztítása és hibátlan feltöltése kategóriákba.</p>
+        <div class="card">
+            <h3>Tömeges Importálás</h3>
+            <p>Nagykereskedelmi Excel (XLSX), CSV vagy XML fájlok tisztítása és hibamentes feltöltése Shoprenter és Unas rendszerekbe.</p>
         </div>
-        <div class="feature">
-            <h3>AI Tartalomgyártás</h3>
-            <p>Egyedi, SEO-optimalizált termékleírások készítése mesterséges intelligenciával.</p>
+        <div class="card">
+            <h3>SEO Szövegírás (AI)</h3>
+            <p>Egyedi, meggyőző és keresőoptimalizált magyar nyelvű leírások készítése minden egyes termékhez – 2026-os technológiával.</p>
         </div>
-        <div class="feature">
-            <h3>Képoptimalizálás</h3>
-            <p>Háttér-eltávolítás, méretezés és vízjelezés, hogy a boltod egységes legyen.</p>
+        <div class="card">
+            <h3>Paraméterezés</h3>
+            <p>Változatok, szűrők, tulajdonságok és kategória-összerendelések precíz beállítása a vásárlói élmény növeléséért.</p>
         </div>
     </div>
-</div>
+</section>
+
+<section class="section">
+    <div class="platform-box">
+        <div class="platform-text">
+            <h2>Amiben mi vagyunk a legjobbak:</h2>
+            <ul class="check-list">
+                <li><strong>Shoprenter:</strong> Szülő-gyermek termékviszonyok, egyedi mezők és SEO beállítások.</li>
+                <li><strong>Unas:</strong> Komplex paraméter mátrixok, csoportos műveletek és export-import profilok.</li>
+                <li><strong>Képkezelés:</strong> Automatikus háttéreltávolítás és egységes vízjellel ellátott webshop képek.</li>
+                <li><strong>Precizitás:</strong> Minden adatot kétszer ellenőrzünk az élesítés előtt.</li>
+            </ul>
+        </div>
+        <div class="pricing">
+            <span class="price-unit">Induló ár:</span>
+            <span class="price-tag">250 Ft</span>
+            <span class="price-unit">/ terméktől</span>
+            <p style="font-size: 0.9rem; margin-top: 1.5rem; opacity: 0.8;">Nagyobb adatbázisok esetén jelentős kedvezményt biztosítunk!</p>
+        </div>
+    </div>
+</section>
+
+<section class="section faq">
+    <div class="section-title">
+        <h2>Gyakori Kérdések</h2>
+    </div>
+    <div class="grid">
+        <div>
+            <h4>Csak Shoprenterrel és Unasszal foglalkoznak?</h4>
+            <p>Igen, tudatosan választottuk ezt a két platformot. Ez garantálja, hogy a legmagasabb szintű szakértelmet kapja a legnépszerűbb magyar rendszerekhez.</p>
+        </div>
+        <div>
+            <h4>Hogyan kapom meg a kész munkát?</h4>
+            <p>Igény szerint közvetlenül az Ön webáruházába töltjük fel az adatokat, vagy átadjuk a rendszerspecifikus, feltöltésre kész import fájlt.</p>
+        </div>
+    </div>
+</section>
+
+<section class="contact">
+    <h2>Nyerje vissza a szabadidejét!</h2>
+    <p>Küldje el nekünk a fájljait, és mi 24 órán belül adunk egy pontos árajánlatot és mintát.</p>
+    <a href="mailto:info@termekfeltolto.hu" class="btn" style="background:white; color:var(--accent);">Vegye fel velünk a kapcsolatot</a>
+</section>
 
 <footer>
     <p>&copy; 2026 Termékfeltöltő.hu – Minden jog fenntartva.</p>
-    <p>Szakmai partnerünk: <a href="https://webshopsegitseg.hu" class="partner-link">Webshopsegitseg.hu</a></p>
+    <a href="https://webshopsegitseg.hu" class="partner-badge">
+        Szakmai partner: <strong>Webshopsegitseg.hu</strong>
+    </a>
 </footer>
 
 </body>
