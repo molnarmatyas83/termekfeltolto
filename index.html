@@ -3,91 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professzionális Termékfeltöltés | Shoprenter és Unas Szakértő</title>
+    <title>Professzionális Termékfeltöltés | Molnár Mátyás E.V.</title>
     <meta name="description" content="Szia! Molnár Mátyás vagyok, Shoprenter és Unas specialistaként segítek a termékfeltöltésben, adatkezelésben és AI szövegírásban. Kérj ajánlatot!">
     <style>
         :root { --main: #0f172a; --accent: #2563eb; --text: #334155; --bg: #f8fafc; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); scroll-behavior: smooth; }
         
         nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
         .logo { font-weight: 800; font-size: 1.3rem; color: var(--main); text-decoration: none; }
         .logo span { color: var(--accent); }
 
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 4rem 1rem; text-align: center; }
-        .hero h1 { font-size: 2.8rem; margin-bottom: 1rem; letter-spacing: -1px; }
-        .hero p { font-size: 1.2rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
-        .hero-phone { font-size: 1.5rem; font-weight: bold; color: #60a5fa; text-decoration: none; display: block; margin-bottom: 2rem; }
-
-        .section { padding: 4rem 1.5rem; max-width: 1000px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 3rem; }
-        .section-title h2 { font-size: 2.2rem; color: var(--main); }
+        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 5rem 1rem; text-align: center; }
+        .hero h1 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -1px; }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 16px; border: 1px solid #e2e8f0; transition: 0.3s; }
-        .card h3 { color: var(--accent); margin-top: 0; }
+        .btn { display: inline-block; background: var(--accent); color: white; padding: 1.2rem 2.8rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); background: #1d4ed8; }
 
-        /* Tally Form szekció */
-        .form-container { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); margin-top: 2rem; }
-        .form-container h2 { text-align: center; color: var(--main); }
+        .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
+        .section-title { text-align: center; margin-bottom: 4rem; }
+        .section-title h2 { font-size: 2.5rem; color: var(--main); margin-bottom: 1rem; }
+        
+        /* Személyes bemutatkozó blokk kép nélkül */
+        .intro-box { background: white; padding: 3.5rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 4rem; text-align: center; border-bottom: 5px solid var(--accent); }
+        .intro-box h2 { color: var(--main); margin-bottom: 1.5rem; font-size: 2.2rem; }
+        .intro-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 1.5rem; }
 
-        /* Részletes leírások */
-        .detailed-services { background: #ebf4ff; border-radius: 24px; padding: 3rem; margin: 3rem 0; }
-        .detailed-services h3 { color: var(--main); border-bottom: 2px solid var(--accent); display: inline-block; margin-bottom: 1.5rem; }
+        .platform-logos { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; align-items: center; }
+        .platform-logo { height: 50px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
+        .platform-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
 
-        footer { background: #0f172a; color: #94a3b8; padding: 3rem 1.5rem; text-align: center; }
+        .detailed-services { background: #ebf4ff; border-radius: 24px; padding: 4rem; margin: 4rem 0; }
+        .service-block { margin-bottom: 4rem; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
+        .service-block:last-child { margin-bottom: 0; }
+        .service-block h3 { color: var(--main); font-size: 1.8rem; border-left: 6px solid var(--accent); padding-left: 1.2rem; margin-top: 0; }
+        .service-block p { font-size: 1.1rem; margin-bottom: 2rem; }
+
+        .form-container { background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-top: 4rem; scroll-margin-top: 100px; border: 1px solid #e2e8f0; }
+        .form-container h2 { text-align: center; color: var(--main); font-size: 2.2rem; margin-bottom: 0.5rem; }
+
+        footer { background: #0f172a; color: #94a3b8; padding: 4rem 1.5rem; text-align: center; }
         .partner-link { color: #60a5fa; text-decoration: none; font-weight: bold; }
         
-        @media (max-width: 768px) { .hero h1 { font-size: 2rem; } }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .intro-box { padding: 2rem; } .platform-logos { gap: 2rem; } }
     </style>
 </head>
 <body>
 
 <nav>
     <a href="#" class="logo">Termék<span>feltöltő</span>.hu</a>
-    <a href="tel:06209785129" style="text-decoration:none; font-weight:bold; color:var(--accent);">+36 20 978 5129</a>
+    <a href="#ajanlat" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Ajánlatot kérek</a>
 </nav>
 
 <section class="hero">
     <h1>Kereskedj, ne adatot rögzíts!</h1>
     <p>Szia! Molnár Mátyás vagyok. Segítek felszabadítani az idődet: profi módon elvégzem a Shoprenter vagy Unas webshopod termékfeltöltését és adatkezelését.</p>
-    <a href="tel:06209785129" class="hero-phone">Hívj bátran: 06 20 978 5129</a>
+    <a href="#ajanlat" class="btn">Kérj ingyenes próbatöltést!</a>
 </section>
 
 <section class="section">
+    <div class="intro-box">
+        <h2>Molnár Mátyás vagyok, a webshopod háttértámogatója.</h2>
+        <p>Tudom, hogy egy webshop indításánál vagy üzemeltetésénél a legunalmasabb és legidőigényesebb rész a termékadatok feltöltése. Én azért vagyok itt, hogy ezt levegyem a válladról.</p>
+        <p>A <strong>Webshopsegitseg.hu</strong> szakmai hátterével és több éves tapasztalattal garantálom a precizitást, legyen szó 50 termék manuális rögzítéséről vagy 5000 termék tömeges importálásáról.</p>
+        <p><strong>Hívj bátran: <a href="tel:06209785129" style="color:var(--accent); text-decoration:none; font-weight:bold;">06 20 978 5129</a></strong></p>
+        <a href="#ajanlat" class="btn" style="margin-top: 1rem; background: #10b981;">Indítsuk el a közös munkát!</a>
+    </div>
+
     <div class="section-title">
-        <h2>Miben tudok segíteni neked?</h2>
-        <p>A Webshopsegitseg.hu szakmai hátterével garantálom a precizitást.</p>
+        <h2>Specializált Shoprenter és Unas szakértelem</h2>
+        <p>Csak a két piacvezető magyar rendszerre fókuszálok, így ismerem minden trükkjüket.</p>
+        <div class="platform-logos">
+            <img src="https://logowiki.net/wp-content/uploads/2021/11/shoprenter-logo.png" alt="Shoprenter szakértő" class="platform-logo" style="height:40px;">
+            <img src="https://unas.hu/img/unas_logo.png" alt="Unas szakértő" class="platform-logo" style="height:35px;">
+        </div>
     </div>
     
     <div class="detailed-services">
-        <h3>1. Tömeges adatkezelés és import</h3>
-        <p>Nem számít, milyen kusza Excel táblázatot vagy XML fájlt kaptál a nagykereskedőtől. Megtisztítom az adatokat, rendszerezem a kategóriákat, és hiba nélkül betöltöm a rendszerbe. Ha több ezer terméked van, nálam ez nem akadály, hanem rutinmunka.</p>
+        <div class="service-block">
+            <h3>Tömeges adatkezelés és import</h3>
+            <p>Nem számít, milyen kusza Excel táblázatot vagy XML fájlt kaptál a nagykereskedőtől. Megtisztítom az adatokat, rendszerezem a kategóriákat, és hiba nélkül betöltöm a rendszerbe. Segítek az árfrissítésekben és a készletkezelés automatizálásában is.</p>
+            <a href="#ajanlat" class="btn">Van egy fájlom, kérlek nézd meg!</a>
+        </div>
         
-        <h3>2. AI-alapú termékleírás készítés</h3>
-        <p>2026-ban már tilos unalmas gyártói leírásokat használni. Mesterséges intelligencia segítségével minden termékedhez egyedi, meggyőző és SEO-optimalizált magyar szöveget írok, ami nem csak a Google-nak tetszik, de eladni is segít.</p>
+        <div class="service-block">
+            <h3>AI-alapú termékleírás készítés</h3>
+            <p>A gyártói leírások másolása helyett mesterséges intelligencia segítségével minden termékedhez egyedi, meggyőző és SEO-optimalizált magyar szöveget írok. Ez segít abban, hogy a Google előrébb soroljon, és a vásárlók is nagyobb bizalommal vásároljanak.</p>
+            <a href="#ajanlat" class="btn">SEO leírásokat szeretnék!</a>
+        </div>
 
-        <h3>3. Precíz paraméterezés és variációk</h3>
-        <p>Beállítom a szűrőket, a termékváltozatokat (méret, szín, anyag) és az összetett paraméter-mátrixokat. Az ügyfeleid imádni fogják, hogy mindent könnyen megtalálnak a Shoprenter vagy Unas boltodban.</p>
-        
-        <h3>4. Képek és média optimalizálás</h3>
-        <p>A fotóidat méretre vágom, optimalizálom a sebesség érdekében, és ha kell, egységes vízjellel látom el őket, hogy a boltod megjelenése profizmust sugározzon.</p>
+        <div class="service-block">
+            <h3>Precíz paraméterezés és variációk</h3>
+            <p>Beállítom a szűrőket, a termékváltozatokat (méret, szín, anyag) és az összetett paraméter-mátrixokat. Ha Shoprenter szülő-gyermek viszonyokról vagy Unas paraméterekről van szó, pontosan tudom, mit hova kell tölteni.</p>
+            <a href="#ajanlat" class="btn">Rendbe rakom a szűrőidet!</a>
+        </div>
     </div>
 
     <div class="form-container" id="ajanlat">
         <h2>Kérj ajánlatot 1 perc alatt!</h2>
-        <p style="text-align:center;">Töltsd ki az alábbi űrlapot, és hamarosan jelentkezem nálad a részletekkel.</p>
+        <p style="text-align:center; margin-bottom: 2rem;">Töltsd ki az alábbi űrlapot, és legkésőbb 24 órán belül jelentkezem nálad a részletekkel.</p>
         
-        <iframe data-tally-src="https://tally.so/embed/nPZOEb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" frameborder="0" height="100" loading="lazy" marginheight="0" marginwidth="0" title="Kérj ajánlatot 1 perc alatt" width="100%"></iframe>
+        <iframe data-tally-src="https://tally.so/embed/nPZOEb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" frameborder="0" height="600" loading="lazy" marginheight="0" marginwidth="0" title="Kérj ajánlatot 1 perc alatt" width="100%"></iframe>
         <script>
             var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
         </script>
-        </div>
+    </div>
 </section>
 
 <footer>
     <p>Molnár Mátyás E.V. - Minden jog fenntartva &copy; 2026</p>
     <p>Telefonszám: <a href="tel:06209785129" style="color:white; text-decoration:none;">06 20 978 5129</a></p>
-    <p>Fő profilom és egyéb segítségek: <a href="https://webshopsegitseg.hu" class="partner-link">Webshopsegitseg.hu</a></p>
+    <p>Fő profilom: <a href="https://webshopsegitseg.hu" class="partner-link">Webshopsegitseg.hu</a></p>
 </footer>
 
 </body>
