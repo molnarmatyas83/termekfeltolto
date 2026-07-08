@@ -2,15 +2,24 @@
 <title></title>
 <link href="favicon.jpg" rel="icon" type="image/png" /><meta name="description" content="Termékfeltöltés Shoprenter és UNAS webáruházakba már 250 Ft-tól. Hivatalos Shoprenter szakértőként segítek kézi és tömeges feltöltésben.">
 <style type="text/css">:root {
-      --main: #0f172a;
-      --accent: #2563eb;
-      --accent-dark: #1d4ed8;
+      --navy: #0f172a;
+      --navy-light: #172554;
+      --blue: #2563eb;
+      --blue-dark: #1d4ed8;
+      --cyan: #06b6d4;
       --green: #10b981;
+      --green-dark: #059669;
+      --orange: #f97316;
+      --yellow: #facc15;
+      --red: #ef4444;
       --text: #334155;
       --muted: #64748b;
       --bg: #f8fafc;
       --card: #ffffff;
       --border: #e2e8f0;
+      --soft-blue: #eff6ff;
+      --soft-green: #ecfdf5;
+      --soft-orange: #fff7ed;
     }
 
     * {
@@ -29,9 +38,25 @@
       background: var(--bg);
     }
 
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      background: #0f172a;
+      color: #cbd5e1;
+      font-size: 0.92rem;
+      padding: 0.55rem 1.5rem;
+      text-align: center;
+    }
+
+    .topbar strong {
+      color: #fff;
+    }
+
     nav {
       background: rgba(255,255,255,0.96);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       padding: 1rem 2rem;
       display: flex;
       justify-content: space-between;
@@ -39,91 +64,161 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      box-shadow: 0 2px 14px rgba(15, 23, 42, 0.08);
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       font-size: 1.35rem;
-      color: var(--main);
+      color: var(--navy);
       text-decoration: none;
+      letter-spacing: -0.4px;
     }
 
     .logo span {
-      color: var(--accent);
+      color: var(--blue);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .phone-link {
+      color: var(--navy);
+      font-weight: 800;
+      text-decoration: none;
+      font-size: 0.95rem;
     }
 
     .btn {
       display: inline-block;
-      background: var(--accent);
-      color: #fff;
-      padding: 1rem 2rem;
-      border-radius: 999px;
+      border: 0;
+      cursor: pointer;
       text-decoration: none;
-      font-weight: 700;
-      transition: 0.25s;
-      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
-    }
-
-    .btn:hover {
-      background: var(--accent-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.32);
-    }
-
-    .btn-small {
-      padding: 0.65rem 1.35rem;
-      font-size: 0.92rem;
-    }
-
-    .btn-green {
-      background: var(--green);
-      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.22);
-    }
-
-    .btn-green:hover {
-      background: #059669;
-      box-shadow: 0 12px 26px rgba(16, 185, 129, 0.32);
-    }
-
-    .hero {
-      background:
-        radial-gradient(circle at top left, rgba(37,99,235,0.35), transparent 35%),
-        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-      color: #fff;
-      padding: 6rem 1.5rem;
+      font-weight: 900;
+      border-radius: 999px;
+      transition: 0.25s ease;
+      line-height: 1.2;
       text-align: center;
     }
 
+    .btn-primary {
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: #111827;
+      padding: 1.05rem 2rem;
+      box-shadow: 0 12px 26px rgba(249, 115, 22, 0.28);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(249, 115, 22, 0.38);
+      filter: brightness(0.98);
+    }
+
+    .btn-blue {
+      background: linear-gradient(135deg, var(--blue), var(--cyan));
+      color: #fff;
+      padding: 1.05rem 2rem;
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.28);
+    }
+
+    .btn-blue:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(37, 99, 235, 0.38);
+    }
+
+    .btn-outline {
+      background: rgba(255,255,255,0.12);
+      color: #fff;
+      padding: 1.05rem 2rem;
+      border: 1px solid rgba(255,255,255,0.32);
+      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.18);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-small {
+      padding: 0.7rem 1.35rem;
+      font-size: 0.92rem;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      color: #fff;
+      text-align: center;
+      padding: 6.5rem 1.5rem 5.5rem;
+      background:
+        radial-gradient(circle at 12% 18%, rgba(6, 182, 212, 0.42), transparent 28%),
+        radial-gradient(circle at 88% 14%, rgba(37, 99, 235, 0.5), transparent 34%),
+        radial-gradient(circle at 50% 100%, rgba(249, 115, 22, 0.2), transparent 38%),
+        linear-gradient(135deg, #0f172a 0%, #172554 52%, #0e7490 100%);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 42px 42px;
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
     .badge {
-      display: inline-block;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.22);
-      color: #dbeafe;
-      padding: 0.45rem 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.13);
+      border: 1px solid rgba(255,255,255,0.26);
+      color: #e0f2fe;
+      padding: 0.52rem 1.1rem;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 900;
       margin-bottom: 1.5rem;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.16);
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 5px rgba(16, 185, 129, 0.18);
     }
 
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      max-width: 950px;
-      margin: 0 auto 1.3rem;
-      line-height: 1.08;
-      letter-spacing: -1.5px;
+      font-size: clamp(2.4rem, 5.8vw, 4.7rem);
+      line-height: 1.04;
+      max-width: 1040px;
+      margin: 0 auto 1.35rem;
+      letter-spacing: -2px;
+    }
+
+    .hero h1 span {
+      display: block;
+      color: var(--yellow);
     }
 
     .hero p {
-      font-size: 1.25rem;
-      max-width: 820px;
-      margin: 0 auto 2.2rem;
-      color: #cbd5e1;
-    }
-
-    .hero-highlight {
-      color: #93c5fd;
-      font-weight: 800;
+      font-size: clamp(1.08rem, 2vw, 1.35rem);
+      max-width: 850px;
+      margin: 0 auto 2.3rem;
+      color: #dbeafe;
     }
 
     .hero-actions {
@@ -131,12 +226,41 @@
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
-      align-items: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-mini {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .hero-mini-card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.24);
+      border-radius: 22px;
+      padding: 1.25rem;
+      backdrop-filter: blur(12px);
+      text-align: left;
+    }
+
+    .hero-mini-card strong {
+      display: block;
+      color: #fff;
+      font-size: 1.2rem;
+      margin-bottom: 0.15rem;
+    }
+
+    .hero-mini-card span {
+      color: #cbd5e1;
+      font-size: 0.95rem;
     }
 
     .section {
       padding: 5rem 1.5rem;
-      max-width: 1120px;
+      max-width: 1140px;
       margin: 0 auto;
     }
 
@@ -146,10 +270,11 @@
     }
 
     .section-title h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      color: var(--main);
+      font-size: clamp(2rem, 4vw, 2.9rem);
+      color: var(--navy);
       margin: 0 0 1rem;
-      line-height: 1.15;
+      line-height: 1.14;
+      letter-spacing: -1px;
     }
 
     .section-title p {
@@ -159,66 +284,113 @@
       font-size: 1.1rem;
     }
 
-    .trust-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.2rem;
-      margin-top: -2.5rem;
-      position: relative;
-      z-index: 5;
-    }
-
-    .trust-card {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 1.6rem;
-      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      text-align: center;
-    }
-
-    .trust-card strong {
-      display: block;
-      color: var(--main);
-      font-size: 1.15rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .trust-card span {
-      color: var(--muted);
-    }
-
     .intro-box {
       background: var(--card);
-      padding: 3rem;
-      border-radius: 26px;
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
       border: 1px solid var(--border);
-      border-bottom: 6px solid var(--accent);
-      text-align: center;
+      border-radius: 30px;
+      padding: 3.4rem;
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .intro-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan), var(--green), var(--yellow), var(--orange));
+    }
+
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2.5rem;
+      align-items: center;
     }
 
     .intro-box h2 {
-      color: var(--main);
-      font-size: 2.2rem;
-      margin-top: 0;
+      color: var(--navy);
+      font-size: clamp(1.9rem, 3vw, 2.55rem);
+      line-height: 1.16;
+      margin: 0 0 1.2rem;
+      letter-spacing: -0.8px;
     }
 
     .intro-box p {
       font-size: 1.08rem;
-      max-width: 860px;
-      margin: 0 auto 1.2rem;
+      margin: 0 0 1.05rem;
     }
 
-    .price-line {
+    .price-card {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(250, 204, 21, 0.35), transparent 32%),
+        linear-gradient(135deg, #fff7ed, #eff6ff);
+      border: 1px solid #fed7aa;
+      border-radius: 26px;
+      padding: 2rem;
+      box-shadow: 0 14px 32px rgba(249, 115, 22, 0.12);
+      text-align: center;
+    }
+
+    .price-card .label {
       display: inline-block;
-      margin: 1.2rem 0;
-      background: #eff6ff;
-      color: #1d4ed8;
-      padding: 0.8rem 1.3rem;
+      background: #111827;
+      color: #fff;
+      padding: 0.4rem 0.9rem;
       border-radius: 999px;
-      font-weight: 800;
-      border: 1px solid #bfdbfe;
+      font-weight: 900;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    .price-card .price {
+      color: var(--orange);
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      line-height: 1;
+      font-weight: 950;
+      letter-spacing: -1.4px;
+    }
+
+    .price-card .unit {
+      color: var(--navy);
+      font-weight: 900;
+      margin: 0.5rem 0 1rem;
+    }
+
+    .price-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin: 0;
+    }
+
+    .platform-strip {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .platform-box {
+      background: #fff;
+      border-radius: 24px;
+      padding: 1.8rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.06);
+      text-align: center;
+    }
+
+    .platform-box strong {
+      display: block;
+      color: var(--navy);
+      font-size: 1.4rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .platform-box span {
+      color: var(--muted);
     }
 
     .cards {
@@ -230,35 +402,73 @@
     .card {
       background: #fff;
       border: 1px solid var(--border);
-      border-radius: 22px;
+      border-radius: 26px;
       padding: 2rem;
-      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.055);
+      transition: 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 42px rgba(15, 23, 42, 0.09);
+    }
+
+    .icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      font-size: 1.35rem;
+      font-weight: 900;
+      margin-bottom: 1.2rem;
+    }
+
+    .icon.blue {
+      background: var(--soft-blue);
+      color: var(--blue);
+    }
+
+    .icon.green {
+      background: var(--soft-green);
+      color: var(--green-dark);
+    }
+
+    .icon.orange {
+      background: var(--soft-orange);
+      color: var(--orange);
     }
 
     .card h3 {
-      color: var(--main);
-      margin-top: 0;
+      color: var(--navy);
+      margin: 0 0 0.75rem;
       font-size: 1.35rem;
+      line-height: 1.25;
     }
 
     .card p {
       color: var(--muted);
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .services {
-      background: #eef6ff;
-      border-radius: 28px;
+      background:
+        radial-gradient(circle at 0% 0%, rgba(6, 182, 212, 0.22), transparent 30%),
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.22), transparent 30%),
+        #eef6ff;
+      border-radius: 32px;
       padding: 3rem;
       border: 1px solid #dbeafe;
     }
 
     .service-block {
       background: #fff;
-      padding: 2.3rem;
-      border-radius: 20px;
+      padding: 2.4rem;
+      border-radius: 24px;
       margin-bottom: 1.4rem;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.055);
       border: 1px solid #e2e8f0;
     }
 
@@ -267,35 +477,64 @@
     }
 
     .service-block h3 {
-      color: var(--main);
+      color: var(--navy);
       font-size: 1.55rem;
-      border-left: 6px solid var(--accent);
       padding-left: 1rem;
-      margin-top: 0;
+      border-left: 6px solid var(--blue);
+      margin: 0 0 1rem;
+      line-height: 1.25;
     }
 
     .service-block ul {
       padding-left: 1.2rem;
-      margin-bottom: 0;
+      margin: 0;
     }
 
     .service-block li {
-      margin-bottom: 0.45rem;
+      margin-bottom: 0.48rem;
+    }
+
+    .cta-banner {
+      background:
+        radial-gradient(circle at 12% 20%, rgba(250, 204, 21, 0.35), transparent 30%),
+        linear-gradient(135deg, #1d4ed8, #0891b2);
+      color: #fff;
+      border-radius: 32px;
+      padding: 3rem;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 2rem;
+      align-items: center;
+      box-shadow: 0 18px 42px rgba(37, 99, 235, 0.22);
+      overflow: hidden;
+    }
+
+    .cta-banner h2 {
+      margin: 0 0 0.8rem;
+      font-size: clamp(1.8rem, 3vw, 2.7rem);
+      line-height: 1.12;
+      letter-spacing: -1px;
+    }
+
+    .cta-banner p {
+      margin: 0;
+      color: #dbeafe;
+      font-size: 1.1rem;
     }
 
     .pricing-box {
       background: #fff;
-      border-radius: 26px;
+      border-radius: 30px;
       padding: 3rem;
       border: 1px solid var(--border);
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.075);
     }
 
     .pricing-row {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      padding: 1.1rem 0;
+      padding: 1.15rem 0;
       border-bottom: 1px solid var(--border);
       align-items: center;
     }
@@ -305,87 +544,172 @@
     }
 
     .pricing-row strong {
-      color: var(--main);
-      font-size: 1.05rem;
+      color: var(--navy);
+      font-size: 1.06rem;
     }
 
     .pricing-row span {
-      font-weight: 800;
-      color: var(--accent);
+      font-weight: 950;
+      color: var(--blue);
       white-space: nowrap;
+    }
+
+    .pricing-row.featured span {
+      background: linear-gradient(135deg, var(--orange), var(--yellow));
+      color: #111827;
+      padding: 0.5rem 0.85rem;
+      border-radius: 999px;
     }
 
     .note {
       color: var(--muted);
       font-size: 0.95rem;
-      margin-top: 1.2rem;
+      margin: 1.2rem 0 0;
+      background: #f8fafc;
+      padding: 1rem;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    .process {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .step {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1.6rem;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+    }
+
+    .step-number {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 13px;
+      background: var(--navy);
+      color: #fff;
+      font-weight: 950;
+      margin-bottom: 1rem;
+    }
+
+    .step h3 {
+      color: var(--navy);
+      margin: 0 0 0.5rem;
+      font-size: 1.12rem;
+    }
+
+    .step p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.96rem;
     }
 
     .form-container {
-      background: #fff;
-      padding: 3rem;
-      border-radius: 26px;
-      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      background:
+        radial-gradient(circle at 0% 0%, rgba(16, 185, 129, 0.15), transparent 28%),
+        #fff;
+      padding: 3.2rem;
+      border-radius: 32px;
+      box-shadow: 0 22px 55px rgba(15, 23, 42, 0.13);
       border: 1px solid var(--border);
-      scroll-margin-top: 100px;
+      scroll-margin-top: 110px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .form-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: linear-gradient(90deg, var(--green), var(--cyan), var(--blue));
     }
 
     .form-container h2 {
       text-align: center;
-      color: var(--main);
-      font-size: 2.3rem;
+      color: var(--navy);
+      font-size: clamp(2rem, 4vw, 2.8rem);
       margin: 0 0 0.5rem;
+      line-height: 1.15;
+      letter-spacing: -1px;
     }
 
-    .form-container p {
+    .form-container > p {
       text-align: center;
       color: var(--muted);
-      margin-bottom: 2rem;
+      margin: 0 auto 2rem;
+      max-width: 720px;
+      font-size: 1.06rem;
     }
 
     footer {
       background: #0f172a;
       color: #94a3b8;
-      padding: 4rem 1.5rem;
+      padding: 4rem 1.5rem 5rem;
       text-align: center;
     }
 
     footer a {
       color: #fff;
       text-decoration: none;
+      font-weight: 800;
     }
 
     .partner-badge {
       display: inline-block;
       margin-top: 1.4rem;
-      padding: 0.8rem 1.4rem;
+      padding: 0.85rem 1.45rem;
       border: 1px solid #334155;
-      border-radius: 14px;
+      border-radius: 16px;
       color: #cbd5e1;
       transition: 0.25s;
     }
 
     .partner-badge:hover {
-      border-color: var(--accent);
-      background: rgba(37, 99, 235, 0.12);
+      border-color: var(--cyan);
+      background: rgba(6, 182, 212, 0.12);
       color: #fff;
     }
 
     .partner-badge strong {
-      color: #60a5fa;
+      color: #67e8f9;
     }
 
-    @media (max-width: 900px) {
-      .trust-grid,
-      .cards {
+    .mobile-sticky-cta {
+      display: none;
+    }
+
+    @media (max-width: 980px) {
+      .intro-grid,
+      .cta-banner {
         grid-template-columns: 1fr;
       }
 
-      .services,
-      .intro-box,
-      .pricing-box,
-      .form-container {
-        padding: 2rem;
+      .hero-mini,
+      .cards,
+      .process {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-banner {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 720px) {
+      body {
+        padding-bottom: 74px;
+      }
+
+      .topbar {
+        font-size: 0.84rem;
       }
 
       nav {
@@ -393,17 +717,55 @@
       }
 
       .logo {
-        font-size: 1.1rem;
+        font-size: 1.12rem;
       }
-    }
 
-    @media (max-width: 600px) {
+      .phone-link {
+        display: none;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
       .hero {
-        padding: 4.5rem 1.2rem;
+        padding: 4.6rem 1.15rem 4rem;
       }
 
-      .hero p {
-        font-size: 1.08rem;
+      .hero h1 {
+        letter-spacing: -1.1px;
+      }
+
+      .hero-actions {
+        gap: 0.75rem;
+      }
+
+      .hero-actions .btn {
+        width: 100%;
+      }
+
+      .hero-mini,
+      .cards,
+      .process,
+      .platform-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 3.5rem 1.15rem;
+      }
+
+      .intro-box,
+      .services,
+      .pricing-box,
+      .form-container,
+      .cta-banner {
+        padding: 2rem;
+        border-radius: 26px;
+      }
+
+      .service-block {
+        padding: 1.7rem;
       }
 
       .pricing-row {
@@ -411,71 +773,126 @@
       }
 
       .pricing-row span {
-        display: block;
-        margin-top: 0.3rem;
+        display: inline-block;
+        margin-top: 0.35rem;
+      }
+
+      .mobile-sticky-cta {
+        display: flex;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999;
+        background: rgba(255,255,255,0.96);
+        backdrop-filter: blur(12px);
+        border-top: 1px solid var(--border);
+        padding: 0.75rem;
+        box-shadow: 0 -10px 28px rgba(15, 23, 42, 0.12);
+        gap: 0.65rem;
+      }
+
+      .mobile-sticky-cta a {
+        flex: 1;
+        padding: 0.85rem 0.8rem;
+        font-size: 0.9rem;
       }
     }
 </style>
-<nav><a class="logo" href="#">Termék<span>feltöltő</span>.hu</a> <a class="btn btn-small" href="#ajanlat">Ajánlatot kérek</a></nav>
+<div class="topbar"><strong>Termékfeltöltés már 250 Ft-tól / termék</strong> · Shoprenter és UNAS webáruházakhoz
+</div>
+<nav><a class="logo" href="#">Termék<span>feltöltő</span>.hu</a>
+<div class="nav-actions"><a class="phone-link" href="tel:06209785129">06 20 978 5129</a> <a class="btn btn-blue btn-small" href="#ajanlat">Ajánlatot kérek</a>
+</div></nav>
 
 <section class="hero">
-<div class="badge">Hivatalos Shoprenter szakértő · Shoprenter és UNAS webáruházakhoz
-</div>
-
-<h1>Termékfeltöltés webáruházadba, hogy ne neked kelljen órákig adatot rögzítened</h1>
-
-<p>Kézi és tömeges termékfeltöltés <span class="hero-highlight">Shoprenter és UNAS</span> webáruházakba. Termékek, képek, kategóriák, árak, leírások, paraméterek és SEO mezők precíz feltöltése.
-</p>
-
-<div class="hero-actions"><a class="btn" href="#ajanlat">Ajánlatot kérek</a> <a class="btn btn-green" href="tel:06209785129">Hívás: 06 20 978 5129</a>
-</div></section>
-
-<section class="section" style="padding-top:0;">
-<div class="trust-grid">
-	<div class="trust-card"><strong>250 Ft-tól / termék</strong> <span>Kézi termékfeltöltés egyszerű termékeknél</span>
+<div class="hero-inner">
+	<div class="badge"><span class="badge-dot"></span> Hivatalos Shoprenter szakértő · Shoprenter és UNAS specialista
 	</div>
 
-	<div class="trust-card"><strong>Shoprenter + UNAS</strong> <span>Csak ezekkel a rendszerekkel dolgozom</span>
+	<h1>Termékfeltöltés webáruházadba <span>már 250 Ft-tól</span></h1>
+
+	<p>Leveszem rólad az időrabló adatfeltöltést. Kézi és tömeges termékfeltöltés Shoprenter és UNAS webáruházakba: termékadatok, képek, kategóriák, árak, paraméterek, változatok és SEO mezők rendezése.
+	</p>
+
+	<div class="hero-actions"><a class="btn btn-primary" href="#ajanlat">Ajánlatot kérek</a> <a class="btn btn-outline" href="#arak">Megnézem az árakat</a>
 	</div>
 
-	<div class="trust-card"><strong>Hivatalos Shoprenter szakértő</strong> <span>Gyakorlati webshopos tapasztalattal</span>
+	<div class="hero-mini">
+		<div class="hero-mini-card"><strong>250 Ft-tól / termék</strong> <span>egyszerű kézi termékfeltöltésnél</span>
+		</div>
+
+		<div class="hero-mini-card"><strong>Shoprenter + UNAS</strong> <span>csak ezekkel a rendszerekkel dolgozom</span>
+		</div>
+
+		<div class="hero-mini-card"><strong>Gyors ajánlat</strong> <span>termékszám és adatforrás alapján</span>
+		</div>
 	</div>
 </div></section>
 
 <section class="section">
 <div class="intro-box">
-	<h2>Molnár Mátyás vagyok, a webshopod termékfeltöltő háttértámogatója.</h2>
+	<div class="intro-grid">
+		<div>
+			<h2>Molnár Mátyás vagyok, a webshopod termékfeltöltő háttértámogatója.</h2>
 
-	<p>Ha van egy Shoprenter vagy UNAS webáruházad, de nincs időd egyesével feltölteni a termékeket, segítek levenni rólad ezt az időrabló, monoton feladatot.
-	</p>
+			<p>Ha Shoprenter vagy UNAS webáruházad van, de nincs időd egyesével feltölteni a termékeket, segítek gyorsan és pontosan rendbe tenni a webshopod tartalmát.
+			</p>
 
-	<p>Nem általános adminisztrációt vállalok, hanem kifejezetten webáruházas termékfeltöltést: termékadatok, képek, kategóriák, árak, cikkszámok, paraméterek, változatok és SEO mezők rendezését.
-	</p>
+			<p>Nem általános adminisztrációt vállalok, hanem kifejezetten webáruházas termékfeltöltést: terméknevek, árak, cikkszámok, képek, kategóriák, paraméterek, változatok, leírások és SEO mezők kezelését.
+			</p>
 
-	<div class="price-line">Termékfeltöltés már 250 Ft-tól / termék
+			<p>A Webshopsegitseg.hu szakmai hátterével, hivatalos Shoprenter szakértőként dolgozom, így nem kell magyaráznod, hol van egy termék, kategória vagy importbeállítás.
+			</p><a class="btn btn-blue" href="#ajanlat">Kérek egy ajánlatot</a>
+		</div>
+
+		<div class="price-card">
+			<div class="label">Induló ár
+			</div>
+
+			<div class="price">250 Ft-tól
+			</div>
+
+			<div class="unit">/ termék
+			</div>
+
+			<p>Egyszerű, kézi termékfeltöltés esetén. Összetettebb termékeknél, variációknál vagy tömeges importnál egyedi ajánlatot adok.
+			</p>
+		</div>
+	</div>
+</div>
+
+<div class="platform-strip">
+	<div class="platform-box"><strong>Shoprenter webáruházak</strong> <span>kézi feltöltés, import, kategóriák, paraméterek, SEO mezők</span>
 	</div>
 
-	<p>A Webshopsegitseg.hu szakmai hátterével, hivatalos Shoprenter szakértőként dolgozom.
-	</p><a class="btn" href="#ajanlat">Kérek egy ajánlatot</a>
+	<div class="platform-box"><strong>UNAS webáruházak</strong> <span>termékadatok, képek, CSV / Excel előkészítés, importálás</span>
+	</div>
 </div></section>
 
 <section class="section">
 <div class="section-title">
 	<h2>Miben tudok segíteni?</h2>
 
-	<p>Shoprenter és UNAS webáruházaknál a teljes termékfeltöltési folyamatban tudok támogatást adni.
+	<p>A termékfeltöltés nem csak adatmásolás. Akkor lesz jó, ha a termékek megtalálhatók, átláthatók, jól kategorizáltak és vásárlásra ösztönöznek.
 	</p>
 </div>
 
 <div class="cards">
 	<div class="card">
+		<div class="icon blue">1
+		</div>
+
 		<h3>Kézi termékfeltöltés</h3>
 
-		<p>Terméknév, ár, cikkszám, leírás, kép, kategória, készlet, paraméterek és alap SEO mezők feltöltése.
+		<p>Terméknév, ár, cikkszám, készlet, kép, kategória, leírás, paraméterek és alap SEO mezők feltöltése.
 		</p>
 	</div>
 
 	<div class="card">
+		<div class="icon green">2
+		</div>
+
 		<h3>Tömeges feltöltés</h3>
 
 		<p>Excel vagy CSV fájlok előkészítése, tisztítása, rendszerezése és importálása Shoprenter vagy UNAS rendszerbe.
@@ -483,6 +900,9 @@
 	</div>
 
 	<div class="card">
+		<div class="icon orange">3
+		</div>
+
 		<h3>SEO termékadatok</h3>
 
 		<p>Meta title, meta description, keresőbarát terméknevek és vásárlásösztönző termékleírások készítése.
@@ -498,9 +918,10 @@
 		<ul>
 			<li>új termékek kézi rögzítése,</li>
 			<li>termékképek feltöltése és rendezése,</li>
-			<li>kategóriák, gyártók, paraméterek beállítása,</li>
-			<li>változatok és opciók kezelése,</li>
-			<li>SEO mezők kitöltése igény szerint.</li>
+			<li>kategóriák, gyártók és paraméterek beállítása,</li>
+			<li>termékváltozatok és opciók kezelése,</li>
+			<li>SEO mezők kitöltése igény szerint,</li>
+			<li>hibás vagy hiányos termékadatok javítása.</li>
 		</ul>
 	</div>
 
@@ -509,36 +930,51 @@
 
 		<ul>
 			<li>termékadatok feltöltése UNAS adminban,</li>
-			<li>Excel / CSV alapú előkészítés,</li>
+			<li>Excel / CSV alapú terméklista előkészítése,</li>
 			<li>képek, kategóriák és paraméterek rendszerezése,</li>
 			<li>tömeges import előkészítése,</li>
-			<li>hibás vagy hiányos adatok javítása.</li>
+			<li>változatok és termékopciók kezelése,</li>
+			<li>adatok egységesítése, tisztítása.</li>
 		</ul>
 	</div>
 
 	<div class="service-block">
-		<h3>Adattisztítás, Excel és CSV előkészítés</h3>
+		<h3>Excel, CSV és nagykereskedői fájlok rendbetétele</h3>
 
 		<ul>
-			<li>nagykereskedői fájlok rendezése,</li>
 			<li>felesleges oszlopok tisztítása,</li>
-			<li>árak, cikkszámok, készletek egységesítése,</li>
+			<li>árak, cikkszámok és készletek egységesítése,</li>
 			<li>kategória- és terméknév-struktúra átnézése,</li>
-			<li>importálható fájl előkészítése.</li>
+			<li>importálható fájl előkészítése,</li>
+			<li>hiányzó vagy hibás adatok jelölése,</li>
+			<li>feltöltés előtti ellenőrzés.</li>
 		</ul>
 	</div>
 </div></section>
 
 <section class="section">
+<div class="cta-banner">
+	<div>
+		<h2>Van egy terméklistád, de nem tudod, hogyan kerüljön fel a webshopba?</h2>
+
+		<p>Küldd el az adatforrást vagy írd meg, hány terméket kell feltölteni. Megnézem, milyen munkáról van szó, és adok rá egy konkrét ajánlatot.
+		</p>
+	</div>
+
+	<div style="text-align:center;"><a class="btn btn-primary" href="#ajanlat">Ajánlatot kérek</a>
+	</div>
+</div></section>
+
+<section class="section" id="arak">
 <div class="section-title">
 	<h2>Árak</h2>
 
-	<p>Az ár függ a termékek összetettségétől, az adatok állapotától és attól, hogy kézi vagy tömeges feltöltésről van szó.
+	<p>Az ár függ a termékek összetettségétől, az adatok állapotától és attól, hogy kézi feltöltésről vagy tömeges importról van szó.
 	</p>
 </div>
 
 <div class="pricing-box">
-	<div class="pricing-row"><strong>Egyszerű kézi termékfeltöltés</strong> <span>250 Ft-tól / termék</span>
+	<div class="pricing-row featured"><strong>Egyszerű kézi termékfeltöltés</strong> <span>250 Ft-tól / termék</span>
 	</div>
 
 	<div class="pricing-row"><strong>Összetettebb termékek, variációk, paraméterek</strong> <span>egyedi ajánlat</span>
@@ -550,20 +986,26 @@
 	<div class="pricing-row"><strong>SEO termékleírás, meta title, meta description</strong> <span>külön kérhető</span>
 	</div>
 
-	<p class="note">Pontos árat akkor tudok mondani, ha látom a termékek számát, az adatforrást és azt, hogy milyen mezőket kell feltölteni.
+	<div class="pricing-row"><strong>Képek rendezése, átnevezése, feltöltése</strong> <span>egyedi ajánlat</span>
+	</div>
+
+	<p class="note">Pontos árat akkor tudok mondani, ha látom a termékek számát, az adatforrást, a képek állapotát és azt, hogy milyen mezőket kell feltölteni.
 	</p>
 </div></section>
 
 <section class="section">
 <div class="section-title">
-	<h2>Kinek jó ez?</h2>
+	<h2>Kinek ajánlom?</h2>
 
-	<p>Akkor érdemes írnod, ha Shoprenter vagy UNAS webáruházad van, és szeretnéd gyorsabban, pontosabban feltölteni a termékeidet.
+	<p>Akkor érdemes megkeresned, ha Shoprenter vagy UNAS webáruházad van, és szeretnéd gyorsabban, pontosabban feltölteni a termékeidet.
 	</p>
 </div>
 
 <div class="cards">
 	<div class="card">
+		<div class="icon blue">✓
+		</div>
+
 		<h3>Most indítod a webshopod</h3>
 
 		<p>Fel kell tölteni az első 50, 100 vagy akár több száz terméket, de nem akarsz ezzel napokat tölteni.
@@ -571,6 +1013,9 @@
 	</div>
 
 	<div class="card">
+		<div class="icon green">+
+		</div>
+
 		<h3>Bővül a kínálatod</h3>
 
 		<p>Új beszállítód, új kategóriád vagy nagyobb terméklistád van, amit gyorsan fel kell vinni a webshopba.
@@ -578,9 +1023,62 @@
 	</div>
 
 	<div class="card">
+		<div class="icon orange">!
+		</div>
+
 		<h3>Rendet tennél az adatokban</h3>
 
-		<p>Hiányosak a termékleírások, rosszak a kategóriák, nincs SEO, vagy káoszos az Excel fájl.
+		<p>Hiányosak a leírások, rosszak a kategóriák, nincs SEO, vagy nehezen kezelhető az Excel fájl.
+		</p>
+	</div>
+</div></section>
+
+<section class="section">
+<div class="section-title">
+	<h2>Így indul a közös munka</h2>
+
+	<p>Nem kell túlbonyolítani. Pár alapinformáció alapján gyorsan látni fogom, milyen feltöltési munkáról van szó.
+	</p>
+</div>
+
+<div class="process">
+	<div class="step">
+		<div class="step-number">1
+		</div>
+
+		<h3>Megírod az igényt</h3>
+
+		<p>Shoprenter vagy UNAS? Hány termék? Van Excel, CSV vagy nagyker fájl?
+		</p>
+	</div>
+
+	<div class="step">
+		<div class="step-number">2
+		</div>
+
+		<h3>Átnézem az adatokat</h3>
+
+		<p>Megnézem, milyen állapotban vannak a termékadatok és a képek.
+		</p>
+	</div>
+
+	<div class="step">
+		<div class="step-number">3
+		</div>
+
+		<h3>Adok ajánlatot</h3>
+
+		<p>Konkrét árat kapsz a feltöltési feladatra, nem általános becslést.
+		</p>
+	</div>
+
+	<div class="step">
+		<div class="step-number">4
+		</div>
+
+		<h3>Feltöltöm a termékeket</h3>
+
+		<p>Rögzítem, rendszerezem vagy importálom a termékeket a webáruházadba.
 		</p>
 	</div>
 </div></section>
@@ -589,15 +1087,18 @@
 <div class="form-container" id="ajanlat">
 	<h2>Kérj ajánlatot 1 perc alatt!</h2>
 
-	<p>Írd meg, milyen rendszered van, hány terméket kell feltölteni, és milyen adatforrásból dolgozunk.
+	<p>Írd meg, milyen rendszered van, hány terméket kell feltölteni, és milyen adatforrásból dolgozunk. Ez alapján tudok pontos ajánlatot adni.
 	</p><iframe data-tally-src="https://tally.so/embed/nPZOEb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" frameborder="0" height="600" loading="lazy" marginheight="0" marginwidth="0" title="Kérj ajánlatot 1 perc alatt" width="100%"></iframe><script>
       var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
     </script>
 </div></section>
 
 <footer>
-<p>Molnár Mátyás E.V. · Termekfeltolto.hu · Minden jog fenntartva © 2026
+<p>Molnár Mátyás E.V. · Termékfeltöltő.hu · Minden jog fenntartva © 2026
 </p>
 
 <p>Telefon: <a href="tel:06209785129">06 20 978 5129</a>
 </p><a class="partner-badge" href="https://webshopsegitseg.hu" target="_blank">Szakmai háttér: <strong>Webshopsegitseg.hu</strong> </a></footer>
+
+<div class="mobile-sticky-cta"><a class="btn btn-blue" href="tel:06209785129">Hívás</a> <a class="btn btn-primary" href="#ajanlat">Ajánlatot kérek</a>
+</div>
