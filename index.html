@@ -1,126 +1,603 @@
-<!DOCTYPE html>
-<html lang="hu">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professzionális Termékfeltöltés | Molnár Mátyás E.V.</title>
-    
-    <link rel="icon" type="image/png" href="favicon.jpg">
-    
-    <meta name="description" content="Szia! Molnár Mátyás vagyok, Shoprenter és Unas specialistaként segítek a termékfeltöltésben, adatkezelésben és AI szövegírásban. Kérj ajánlatot!">
-    <style>
-        :root { --main: #0f172a; --accent: #2563eb; --text: #334155; --bg: #f8fafc; }
-        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text); margin: 0; background: var(--bg); scroll-behavior: smooth; }
-        
-        nav { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-        .logo { font-weight: 800; font-size: 1.3rem; color: var(--main); text-decoration: none; }
-        .logo span { color: var(--accent); }
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link href="favicon.jpg" rel="icon" type="image/png" /><meta name="description" content="Termékfeltöltés Shoprenter és UNAS webáruházakba már 250 Ft-tól. Hivatalos Shoprenter szakértőként segítek kézi és tömeges feltöltésben.">
+<style type="text/css">:root {
+      --main: #0f172a;
+      --accent: #2563eb;
+      --accent-dark: #1d4ed8;
+      --green: #10b981;
+      --text: #334155;
+      --muted: #64748b;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --border: #e2e8f0;
+    }
 
-        .hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); color: white; padding: 5rem 1rem; text-align: center; }
-        .hero h1 { font-size: 3rem; margin-bottom: 1rem; letter-spacing: -1px; }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin: 0 auto 2rem; opacity: 0.9; }
-        
-        .btn { display: inline-block; background: var(--accent); color: white; padding: 1.2rem 2.8rem; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.1rem; transition: all 0.3s; border: none; cursor: pointer; box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2); }
-        .btn:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4); background: #1d4ed8; }
+    * {
+      box-sizing: border-box;
+    }
 
-        .section { padding: 5rem 1.5rem; max-width: 1100px; margin: 0 auto; }
-        .section-title { text-align: center; margin-bottom: 4rem; }
-        .section-title h2 { font-size: 2.5rem; color: var(--main); margin-bottom: 1rem; }
-        
-        .intro-box { background: white; padding: 3.5rem; border-radius: 24px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); margin-bottom: 4rem; text-align: center; border-bottom: 5px solid var(--accent); }
-        .intro-box h2 { color: var(--main); margin-bottom: 1.5rem; font-size: 2.2rem; }
-        .intro-box p { font-size: 1.15rem; max-width: 850px; margin: 0 auto 1.5rem; }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .platform-logos { display: flex; justify-content: center; gap: 4rem; margin-top: 2rem; flex-wrap: wrap; align-items: center; }
-        .platform-logo { height: 45px; filter: grayscale(100%); opacity: 0.6; transition: 0.3s; }
-        .platform-logo:hover { filter: grayscale(0%); opacity: 1; transform: scale(1.05); }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: var(--text);
+      background: var(--bg);
+    }
 
-        .detailed-services { background: #ebf4ff; border-radius: 24px; padding: 4rem; margin: 4rem 0; }
-        .service-block { margin-bottom: 4rem; background: white; padding: 2.5rem; border-radius: 16px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); }
-        .service-block:last-child { margin-bottom: 0; }
-        .service-block h3 { color: var(--main); font-size: 1.8rem; border-left: 6px solid var(--accent); padding-left: 1.2rem; margin-top: 0; }
-        .service-block p { font-size: 1.1rem; margin-bottom: 2rem; }
+    nav {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+    }
 
-        .form-container { background: white; padding: 3rem; border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.1); margin-top: 4rem; scroll-margin-top: 100px; border: 1px solid #e2e8f0; }
-        .form-container h2 { text-align: center; color: var(--main); font-size: 2.2rem; margin-bottom: 0.5rem; }
+    .logo {
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: var(--main);
+      text-decoration: none;
+    }
 
-        footer { background: #0f172a; color: #94a3b8; padding: 4rem 1.5rem; text-align: center; }
-        .partner-badge { display: inline-block; margin-top: 1.5rem; padding: 0.8rem 1.5rem; border: 1px solid #334155; border-radius: 12px; text-decoration: none; color: #cbd5e1; transition: 0.3s; }
-        .partner-badge:hover { border-color: var(--accent); color: white; background: rgba(37, 99, 235, 0.1); }
-        .partner-badge strong { color: #60a5fa; }
-        
-        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } .intro-box { padding: 2rem; } }
-    </style>
-</head>
-<body>
+    .logo span {
+      color: var(--accent);
+    }
 
-<nav>
-    <a href="#" class="logo">Termék<span>feltöltő</span>.hu</a>
-    <a href="#ajanlat" class="btn" style="padding: 0.6rem 1.5rem; font-size: 0.9rem;">Ajánlatot kérek</a>
-</nav>
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: 0.25s;
+      box-shadow: 0 8px 18px rgba(37, 99, 235, 0.22);
+    }
+
+    .btn:hover {
+      background: var(--accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px rgba(37, 99, 235, 0.32);
+    }
+
+    .btn-small {
+      padding: 0.65rem 1.35rem;
+      font-size: 0.92rem;
+    }
+
+    .btn-green {
+      background: var(--green);
+      box-shadow: 0 8px 18px rgba(16, 185, 129, 0.22);
+    }
+
+    .btn-green:hover {
+      background: #059669;
+      box-shadow: 0 12px 26px rgba(16, 185, 129, 0.32);
+    }
+
+    .hero {
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,0.35), transparent 35%),
+        linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #fff;
+      padding: 6rem 1.5rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.22);
+      color: #dbeafe;
+      padding: 0.45rem 1rem;
+      border-radius: 999px;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      max-width: 950px;
+      margin: 0 auto 1.3rem;
+      line-height: 1.08;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 820px;
+      margin: 0 auto 2.2rem;
+      color: #cbd5e1;
+    }
+
+    .hero-highlight {
+      color: #93c5fd;
+      font-weight: 800;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .section {
+      padding: 5rem 1.5rem;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      color: var(--main);
+      margin: 0 0 1rem;
+      line-height: 1.15;
+    }
+
+    .section-title p {
+      max-width: 760px;
+      margin: 0 auto;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      margin-top: -2.5rem;
+      position: relative;
+      z-index: 5;
+    }
+
+    .trust-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 1.6rem;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      text-align: center;
+    }
+
+    .trust-card strong {
+      display: block;
+      color: var(--main);
+      font-size: 1.15rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .trust-card span {
+      color: var(--muted);
+    }
+
+    .intro-box {
+      background: var(--card);
+      padding: 3rem;
+      border-radius: 26px;
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
+      border: 1px solid var(--border);
+      border-bottom: 6px solid var(--accent);
+      text-align: center;
+    }
+
+    .intro-box h2 {
+      color: var(--main);
+      font-size: 2.2rem;
+      margin-top: 0;
+    }
+
+    .intro-box p {
+      font-size: 1.08rem;
+      max-width: 860px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .price-line {
+      display: inline-block;
+      margin: 1.2rem 0;
+      background: #eff6ff;
+      color: #1d4ed8;
+      padding: 0.8rem 1.3rem;
+      border-radius: 999px;
+      font-weight: 800;
+      border: 1px solid #bfdbfe;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.4rem;
+    }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 2rem;
+      box-shadow: 0 10px 26px rgba(15, 23, 42, 0.05);
+    }
+
+    .card h3 {
+      color: var(--main);
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .services {
+      background: #eef6ff;
+      border-radius: 28px;
+      padding: 3rem;
+      border: 1px solid #dbeafe;
+    }
+
+    .service-block {
+      background: #fff;
+      padding: 2.3rem;
+      border-radius: 20px;
+      margin-bottom: 1.4rem;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    .service-block:last-child {
+      margin-bottom: 0;
+    }
+
+    .service-block h3 {
+      color: var(--main);
+      font-size: 1.55rem;
+      border-left: 6px solid var(--accent);
+      padding-left: 1rem;
+      margin-top: 0;
+    }
+
+    .service-block ul {
+      padding-left: 1.2rem;
+      margin-bottom: 0;
+    }
+
+    .service-block li {
+      margin-bottom: 0.45rem;
+    }
+
+    .pricing-box {
+      background: #fff;
+      border-radius: 26px;
+      padding: 3rem;
+      border: 1px solid var(--border);
+      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.07);
+    }
+
+    .pricing-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: center;
+    }
+
+    .pricing-row:last-child {
+      border-bottom: 0;
+    }
+
+    .pricing-row strong {
+      color: var(--main);
+      font-size: 1.05rem;
+    }
+
+    .pricing-row span {
+      font-weight: 800;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-top: 1.2rem;
+    }
+
+    .form-container {
+      background: #fff;
+      padding: 3rem;
+      border-radius: 26px;
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      border: 1px solid var(--border);
+      scroll-margin-top: 100px;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: var(--main);
+      font-size: 2.3rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .form-container p {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .partner-badge {
+      display: inline-block;
+      margin-top: 1.4rem;
+      padding: 0.8rem 1.4rem;
+      border: 1px solid #334155;
+      border-radius: 14px;
+      color: #cbd5e1;
+      transition: 0.25s;
+    }
+
+    .partner-badge:hover {
+      border-color: var(--accent);
+      background: rgba(37, 99, 235, 0.12);
+      color: #fff;
+    }
+
+    .partner-badge strong {
+      color: #60a5fa;
+    }
+
+    @media (max-width: 900px) {
+      .trust-grid,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .services,
+      .intro-box,
+      .pricing-box,
+      .form-container {
+        padding: 2rem;
+      }
+
+      nav {
+        padding: 0.9rem 1rem;
+      }
+
+      .logo {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 4.5rem 1.2rem;
+      }
+
+      .hero p {
+        font-size: 1.08rem;
+      }
+
+      .pricing-row {
+        display: block;
+      }
+
+      .pricing-row span {
+        display: block;
+        margin-top: 0.3rem;
+      }
+    }
+</style>
+<nav><a class="logo" href="#">Termék<span>feltöltő</span>.hu</a> <a class="btn btn-small" href="#ajanlat">Ajánlatot kérek</a></nav>
 
 <section class="hero">
-    <h1>Kereskedj, ne adatot rögzíts!</h1>
-    <p>Szia! Molnár Mátyás vagyok. Segítek felszabadítani az idődet: profi módon elvégzem a Shoprenter vagy Unas webshopod termékfeltöltését és adatkezelését.</p>
-    <a href="#ajanlat" class="btn">Kérj ingyenes próbatöltést!</a>
-</section>
+<div class="badge">Hivatalos Shoprenter szakértő · Shoprenter és UNAS webáruházakhoz
+</div>
+
+<h1>Termékfeltöltés webáruházadba, hogy ne neked kelljen órákig adatot rögzítened</h1>
+
+<p>Kézi és tömeges termékfeltöltés <span class="hero-highlight">Shoprenter és UNAS</span> webáruházakba. Termékek, képek, kategóriák, árak, leírások, paraméterek és SEO mezők precíz feltöltése.
+</p>
+
+<div class="hero-actions"><a class="btn" href="#ajanlat">Ajánlatot kérek</a> <a class="btn btn-green" href="tel:06209785129">Hívás: 06 20 978 5129</a>
+</div></section>
+
+<section class="section" style="padding-top:0;">
+<div class="trust-grid">
+	<div class="trust-card"><strong>250 Ft-tól / termék</strong> <span>Kézi termékfeltöltés egyszerű termékeknél</span>
+	</div>
+
+	<div class="trust-card"><strong>Shoprenter + UNAS</strong> <span>Csak ezekkel a rendszerekkel dolgozom</span>
+	</div>
+
+	<div class="trust-card"><strong>Hivatalos Shoprenter szakértő</strong> <span>Gyakorlati webshopos tapasztalattal</span>
+	</div>
+</div></section>
 
 <section class="section">
-    <div class="intro-box">
-        <h2>Molnár Mátyás vagyok, a webshopod háttértámogatója.</h2>
-        <p>Tudom, hogy egy webshop üzemeltetésénél a legunalmasabb rész a termékadatok feltöltése. Én azért vagyok itt, hogy ezt levegyem a válladról, és szakértő kezekbe kerüljön a boltod háttérmunkája.</p>
-        <p>A <strong>Webshopsegitseg.hu</strong> szakmai hátterével garantálom a precizitást és a gyorsaságot, legyen szó 50 termék manuális rögzítéséről vagy több ezer termék tömeges importálásáról.</p>
-        <p><strong>Hívj bátran: <a href="tel:06209785129" style="color:var(--accent); text-decoration:none; font-weight:bold;">06 20 978 5129</a></strong></p>
-        <a href="#ajanlat" class="btn" style="margin-top: 1rem; background: #10b981;">Indítsuk el a közös munkát!</a>
-    </div>
+<div class="intro-box">
+	<h2>Molnár Mátyás vagyok, a webshopod termékfeltöltő háttértámogatója.</h2>
 
-    <div class="section-title">
-        <h2>Specializált Shoprenter és Unas szakértelem</h2>
-        <div class="platform-logos">
-            <img src="https://static.shoprenter.hu/shop/common/img/shoprenter_logo_2023.png" alt="Shoprenter szakértő" class="platform-logo" onerror="this.src='https://via.placeholder.com/200x50?text=Shoprenter'">
-            <img src="https://unas.hu/img/unas_logo.png" alt="Unas szakértő" class="platform-logo" onerror="this.src='https://via.placeholder.com/200x50?text=Unas'">
-        </div>
-    </div>
-    
-    <div class="detailed-services">
-        <div class="service-block">
-            <h3>Tömeges adatkezelés és import</h3>
-            <p>Megtisztítom az adatokat, rendszerezem a kategóriákat, és hiba nélkül betöltöm a rendszerbe a nagykereskedelmi fájljaidat. Segítek az árfrissítésekben és a készletkezelés automatizálásában is.</p>
-            <a href="#ajanlat" class="btn">Van egy fájlom, nézd meg!</a>
-        </div>
-        
-        <div class="service-block">
-            <h3>AI-alapú termékleírás készítés</h3>
-            <p>Mesterséges intelligencia segítségével minden termékedhez egyedi, meggyőző és SEO-optimalizált magyar szöveget írok. Ez segít abban, hogy a Google előrébb soroljon, és a vásárlók is bizalommal vásároljanak.</p>
-            <a href="#ajanlat" class="btn">SEO leírásokat szeretnék!</a>
-        </div>
+	<p>Ha van egy Shoprenter vagy UNAS webáruházad, de nincs időd egyesével feltölteni a termékeket, segítek levenni rólad ezt az időrabló, monoton feladatot.
+	</p>
 
-        <div class="service-block">
-            <h3>Precíz paraméterezés és variációk</h3>
-            <p>Beállítom a szűrőket, a termékváltozatokat és az összetett paraméter-mátrixokat. Pontosan tudom, hogyan kell felépíteni a logikus választékot Shoprenter és Unas környezetben.</p>
-            <a href="#ajanlat" class="btn">Rendbe rakom a szűrőidet!</a>
-        </div>
-    </div>
+	<p>Nem általános adminisztrációt vállalok, hanem kifejezetten webáruházas termékfeltöltést: termékadatok, képek, kategóriák, árak, cikkszámok, paraméterek, változatok és SEO mezők rendezését.
+	</p>
 
-    <div class="form-container" id="ajanlat">
-        <h2>Kérj ajánlatot 1 perc alatt!</h2>
-        <p style="text-align:center; margin-bottom: 2rem;">Töltsd ki az alábbi űrlapot, és legkésőbb 24 órán belül jelentkezem nálad a részletekkel.</p>
-        
-        <iframe data-tally-src="https://tally.so/embed/nPZOEb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" frameborder="0" height="600" loading="lazy" marginheight="0" marginwidth="0" title="Kérj ajánlatot 1 perc alatt" width="100%"></iframe>
-        <script>
-            var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
-        </script>
-    </div>
-</section>
+	<div class="price-line">Termékfeltöltés már 250 Ft-tól / termék
+	</div>
+
+	<p>A Webshopsegitseg.hu szakmai hátterével, hivatalos Shoprenter szakértőként dolgozom.
+	</p><a class="btn" href="#ajanlat">Kérek egy ajánlatot</a>
+</div></section>
+
+<section class="section">
+<div class="section-title">
+	<h2>Miben tudok segíteni?</h2>
+
+	<p>Shoprenter és UNAS webáruházaknál a teljes termékfeltöltési folyamatban tudok támogatást adni.
+	</p>
+</div>
+
+<div class="cards">
+	<div class="card">
+		<h3>Kézi termékfeltöltés</h3>
+
+		<p>Terméknév, ár, cikkszám, leírás, kép, kategória, készlet, paraméterek és alap SEO mezők feltöltése.
+		</p>
+	</div>
+
+	<div class="card">
+		<h3>Tömeges feltöltés</h3>
+
+		<p>Excel vagy CSV fájlok előkészítése, tisztítása, rendszerezése és importálása Shoprenter vagy UNAS rendszerbe.
+		</p>
+	</div>
+
+	<div class="card">
+		<h3>SEO termékadatok</h3>
+
+		<p>Meta title, meta description, keresőbarát terméknevek és vásárlásösztönző termékleírások készítése.
+		</p>
+	</div>
+</div></section>
+
+<section class="section">
+<div class="services">
+	<div class="service-block">
+		<h3>Termékfeltöltés Shoprenter webáruházba</h3>
+
+		<ul>
+			<li>új termékek kézi rögzítése,</li>
+			<li>termékképek feltöltése és rendezése,</li>
+			<li>kategóriák, gyártók, paraméterek beállítása,</li>
+			<li>változatok és opciók kezelése,</li>
+			<li>SEO mezők kitöltése igény szerint.</li>
+		</ul>
+	</div>
+
+	<div class="service-block">
+		<h3>Termékfeltöltés UNAS webáruházba</h3>
+
+		<ul>
+			<li>termékadatok feltöltése UNAS adminban,</li>
+			<li>Excel / CSV alapú előkészítés,</li>
+			<li>képek, kategóriák és paraméterek rendszerezése,</li>
+			<li>tömeges import előkészítése,</li>
+			<li>hibás vagy hiányos adatok javítása.</li>
+		</ul>
+	</div>
+
+	<div class="service-block">
+		<h3>Adattisztítás, Excel és CSV előkészítés</h3>
+
+		<ul>
+			<li>nagykereskedői fájlok rendezése,</li>
+			<li>felesleges oszlopok tisztítása,</li>
+			<li>árak, cikkszámok, készletek egységesítése,</li>
+			<li>kategória- és terméknév-struktúra átnézése,</li>
+			<li>importálható fájl előkészítése.</li>
+		</ul>
+	</div>
+</div></section>
+
+<section class="section">
+<div class="section-title">
+	<h2>Árak</h2>
+
+	<p>Az ár függ a termékek összetettségétől, az adatok állapotától és attól, hogy kézi vagy tömeges feltöltésről van szó.
+	</p>
+</div>
+
+<div class="pricing-box">
+	<div class="pricing-row"><strong>Egyszerű kézi termékfeltöltés</strong> <span>250 Ft-tól / termék</span>
+	</div>
+
+	<div class="pricing-row"><strong>Összetettebb termékek, variációk, paraméterek</strong> <span>egyedi ajánlat</span>
+	</div>
+
+	<div class="pricing-row"><strong>Excel / CSV előkészítés és tömeges import</strong> <span>egyedi ajánlat</span>
+	</div>
+
+	<div class="pricing-row"><strong>SEO termékleírás, meta title, meta description</strong> <span>külön kérhető</span>
+	</div>
+
+	<p class="note">Pontos árat akkor tudok mondani, ha látom a termékek számát, az adatforrást és azt, hogy milyen mezőket kell feltölteni.
+	</p>
+</div></section>
+
+<section class="section">
+<div class="section-title">
+	<h2>Kinek jó ez?</h2>
+
+	<p>Akkor érdemes írnod, ha Shoprenter vagy UNAS webáruházad van, és szeretnéd gyorsabban, pontosabban feltölteni a termékeidet.
+	</p>
+</div>
+
+<div class="cards">
+	<div class="card">
+		<h3>Most indítod a webshopod</h3>
+
+		<p>Fel kell tölteni az első 50, 100 vagy akár több száz terméket, de nem akarsz ezzel napokat tölteni.
+		</p>
+	</div>
+
+	<div class="card">
+		<h3>Bővül a kínálatod</h3>
+
+		<p>Új beszállítód, új kategóriád vagy nagyobb terméklistád van, amit gyorsan fel kell vinni a webshopba.
+		</p>
+	</div>
+
+	<div class="card">
+		<h3>Rendet tennél az adatokban</h3>
+
+		<p>Hiányosak a termékleírások, rosszak a kategóriák, nincs SEO, vagy káoszos az Excel fájl.
+		</p>
+	</div>
+</div></section>
+
+<section class="section">
+<div class="form-container" id="ajanlat">
+	<h2>Kérj ajánlatot 1 perc alatt!</h2>
+
+	<p>Írd meg, milyen rendszered van, hány terméket kell feltölteni, és milyen adatforrásból dolgozunk.
+	</p><iframe data-tally-src="https://tally.so/embed/nPZOEb?alignLeft=1&amp;hideTitle=1&amp;transparentBackground=1&amp;dynamicHeight=1" frameborder="0" height="600" loading="lazy" marginheight="0" marginwidth="0" title="Kérj ajánlatot 1 perc alatt" width="100%"></iframe><script>
+      var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}
+    </script>
+</div></section>
 
 <footer>
-    <p>Molnár Mátyás E.V. - Minden jog fenntartva &copy; 2026</p>
-    <p>Telefonszám: <a href="tel:06209785129" style="color:white; text-decoration:none;">06 20 978 5129</a></p>
-    <a href="https://webshopsegitseg.hu" class="partner-badge" target="_blank">
-        Szakmai partner: <strong>Webshopsegitseg.hu</strong>
-    </a>
-</footer>
+<p>Molnár Mátyás E.V. · Termekfeltolto.hu · Minden jog fenntartva © 2026
+</p>
 
-</body>
-</html>
-
+<p>Telefon: <a href="tel:06209785129">06 20 978 5129</a>
+</p><a class="partner-badge" href="https://webshopsegitseg.hu" target="_blank">Szakmai háttér: <strong>Webshopsegitseg.hu</strong> </a></footer>
